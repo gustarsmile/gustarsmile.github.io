@@ -11,29 +11,36 @@
   <meta property="og:locale" content="zh_TW">
   <meta name="theme-color" content="#f6e3ae">
   <style>
-    :root { --ink: #3a2a18; --muted: #6f5a40; --card: rgba(255, 252, 243, .9); --line: #dcc07a; --accent: #a8451f; --gold: #b8892b; }
+    :root { --ink: #3a2a18; --muted: #6f5a40; --card: rgba(255, 252, 243, .94); --line: #dcc07a; --accent: #a8451f; --gold: #8a5a10; }
     * { box-sizing: border-box; }
-    body { margin: 0; background: #f8ecc8; color: var(--ink); font-family: "Noto Serif TC", "PMingLiU", "Songti TC", serif; line-height: 1.7; }
-    /* 背景：《天堂遊記》的小樹苗（廟宇彩繪風），上面蓋一層暖色把它刷淡。用固定的假元素，手機捲動時不會跳動 */
-    body::before { content: ""; position: fixed; inset: 0; z-index: -1;
-      background: linear-gradient(rgba(255, 249, 232, .74), rgba(255, 244, 214, .84)), url("assets/sapling.webp") center / cover no-repeat; }
-    main { max-width: 40rem; margin: 0 auto; padding: 2.5rem 1rem 3rem; }
+    body { margin: 0; background: #e9c95c; color: var(--ink); font-family: "Noto Serif TC", "PMingLiU", "Songti TC", serif; line-height: 1.7; }
+    /* 背景：《天堂遊記》的小樹苗（廟宇彩繪風），用原本的顏色、不刷淡（2026-11-19 書的主人要求：
+       前面已經是白框，背景再刷白對比太低）。所以直接壓在圖上的字都要有自己的底：標題一塊、小標和頁尾各一個小牌。
+       用固定的假元素當背景，手機捲動時不會跳動 */
+    body::before { content: ""; position: fixed; inset: 0; z-index: -1; background: url("assets/sapling.webp") center / cover no-repeat; }
+    main { max-width: 40rem; margin: 0 auto; padding: 2rem 1rem 3rem; }
+    .panel, a.work { background: var(--card); border: 1px solid var(--line); border-radius: .6rem; box-shadow: 0 3px 14px rgba(90, 60, 10, .28); }
+    header.panel { padding: 1.1rem 1.2rem 1.2rem; }
     h1 { font-size: 1.7rem; margin: 0 0 .25rem; letter-spacing: .08em; color: var(--accent); }
-    p.lead { color: var(--ink); margin: 0 0 2rem; }
-    h2 { font-size: 1rem; color: var(--gold); font-weight: bold; margin: 2rem 0 .5rem; letter-spacing: .15em; }
+    p.lead { color: var(--ink); margin: 0; }
+    h2 { display: inline-block; font-size: 1rem; color: var(--gold); font-weight: bold; margin: 1.75rem 0 .6rem; padding: .15rem .9rem; letter-spacing: .15em;
+      background: var(--card); border: 1px solid var(--line); border-radius: 999px; box-shadow: 0 2px 8px rgba(90, 60, 10, .25); }
     ul { list-style: none; padding: 0; margin: 0; display: grid; gap: .75rem; }
-    a.work { display: block; padding: 1rem 1.1rem; background: var(--card); border: 1px solid var(--line); border-radius: .6rem; color: inherit; text-decoration: none; box-shadow: 0 2px 10px rgba(150, 110, 30, .12); }
-    a.work:hover, a.work:focus-visible { border-color: var(--accent); box-shadow: 0 3px 14px rgba(168, 69, 31, .2); }
+    a.work { display: block; padding: 1rem 1.1rem; color: inherit; text-decoration: none; }
+    a.work:hover, a.work:focus-visible { border-color: var(--accent); box-shadow: 0 4px 18px rgba(168, 69, 31, .4); }
     a.work strong { display: block; font-size: 1.15rem; color: var(--accent); }
     a.work span { color: var(--muted); font-size: .95rem; }
-    footer { margin-top: 2.5rem; color: var(--ink); font-size: .95rem; }
+    footer { display: inline-block; margin-top: 2rem; padding: .4rem 1rem; color: var(--ink); font-size: .95rem;
+      background: var(--card); border: 1px solid var(--line); border-radius: 999px; box-shadow: 0 2px 8px rgba(90, 60, 10, .25); }
     footer a { color: var(--accent); }
   </style>
 </head>
 <body>
   <main>
-    <h1>經典互動作品</h1>
-    <p class="lead">蔬米 OMILKYWAY 把傳統的勸善經典做成可以點、可以讀、可以玩的網頁。免費、免下載，手機打開就能看。</p>
+    <header class="panel">
+      <h1>經典互動作品</h1>
+      <p class="lead">蔬米 OMILKYWAY 把傳統的勸善經典做成可以點、可以讀、可以玩的網頁。免費、免下載，手機打開就能看。</p>
+    </header>
 
     <h2>互動電子書</h2>
     <ul>
